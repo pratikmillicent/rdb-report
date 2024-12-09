@@ -76,7 +76,6 @@ function ProjectTemp() {
         </div>
         <div>
           <div className="sub-heading-border">PROJECT DESCRIPTION</div>
-
           <div className="project-desc">
             <div className="project-desc-left-content">
               <h4>AREA AVAILABLE</h4>

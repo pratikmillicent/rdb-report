@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
-import { IoIosMail, IoMdTrain } from 'react-icons/io';
-import { HiShoppingBag } from 'react-icons/hi';
-import { PiGraduationCapFill } from 'react-icons/pi';
-import { MdFlight } from 'react-icons/md';
-import { BsTrainFront } from 'react-icons/bs';
-import { GiRoad } from 'react-icons/gi';
+import { IoIosMail } from 'react-icons/io';
 
 function ProjectSingleTemp() {
   return (

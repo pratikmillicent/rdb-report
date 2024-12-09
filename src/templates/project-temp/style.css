@@ -184,7 +184,7 @@ section {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 40dvh;
+  height: 30dvh;
   width: 100%;
   position: relative;
 }
@@ -237,16 +237,16 @@ section {
 }
 
 .about-content {
-  margin: 0 40px;
-  margin-top: 60px;
-  padding: 0 40px;
+  margin: 0 20px;
+  margin-top: 30px;
+  padding: 0 20px;
   border-left: 4px solid var(--navy);
-  font-size: 28px;
+  font-size: 22px;
   font-weight: 500;
-  letter-spacing: 1px;
-  line-height: 42px;
+  letter-spacing: 0.5px;
+  line-height: 30px;
   display: grid;
-  gap: 60px;
+  gap: 20px;
   text-align: justify;
 }
 
@@ -299,17 +299,16 @@ section {
 }
 
 .desc-header {
-  transform: translate(-46px, -80px);
+  transform: translate(-46px, -107px);
   width: 80dvw;
 }
 
 .sub-heading-border {
   display: block;
-  font-size: 30px;
+  font-size: 28px;
   color: var(--navy);
   position: relative;
   text-align: center;
-  margin-top: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -712,10 +711,10 @@ section {
 .singlePage-description-container {
   position: relative;
   background-image: url('https://i.ibb.co/XDSh55P/home-building.jpg');
-  background-size: 100% 40dvh;
+  background-size: 100% 30dvh;
   background-repeat: no-repeat;
   background-position: top center;
-  padding-top: 31dvh;
+  padding-top: 30dvh;
 }
 
 .desc-head-text {

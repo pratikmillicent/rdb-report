@@ -40,12 +40,13 @@ function ProjectTempA4() {
       {/* about section start  */}
       <div
         style={{
-          width: '100%',
+          width: 'calc(100%-20px)',
+          padding: '20px',
         }}
       >
         <div>
           <div>
-            <div className="about-container" style={{ margin: '20px' }}>
+            <div className="about-container">
               <div className="body-container">
                 <div style={{ width: '100%' }}>
                   <div className="about-banner">

@@ -11,6 +11,7 @@ import ProjectTemp from './templates/project-temp';
 import PreLeaseTemp from './templates/Prelease/Index';
 import ProjectSingleTemp from './templates/project-single-temp';
 import ProjectTempA4 from './templates/project-tempA4';
+import ProjectTemp3 from './templates/project-temp2';
 
 @Controller()
 export class AppController {
@@ -103,9 +104,59 @@ export class AppController {
           </body>
         </html>
       `;
+      // const pdfBuffer = await generatePDF(html);
+      // response.header('Content-Disposition', `filename="Report.pdf"`)
+      // response.status(200).type("application/pdf").send(pdfBuffer);
+
+      response.status(200).type("text/html").send(html)
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      response.status(500).send('Error generating PDF');
+    }
+  }
+
+
+  @Get('project-temp2')
+  async projectReport3(@Res() response: Response) {
+    try {
+      const markup = renderToStaticMarkup(createElement(ProjectTemp3))
+      const style = fs.readFileSync(process.cwd() + '/src/templates/project-temp2/style.css').toString()
+
+      const html = `
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Report 2</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Sen:wght@400..800&display=swap" rel="stylesheet">
+            <style>
+              ${style}
+            </style>
+          </head>
+          <body>
+              ${markup}
+
+            <script type="text/javascript">
+              window.addEventListener('load', function() {
+                document.querySelectorAll(".spacer").forEach(el => {
+                  const parent = el.parentElement;
+                  const remainder = (parent.clientHeight % window.innerHeight);
+                  if(remainder > 0) {
+                    el.style = "height: calc(100vh - (" + parent.clientHeight + "px" + " -  100vh) - 105px)";
+                  }
+                })
+              })
+            </script>
+          </body>
+        </html>
+      `;
       const pdfBuffer = await generatePDF(html);
       response.header('Content-Disposition', `filename="Report.pdf"`)
       response.status(200).type("application/pdf").send(pdfBuffer);
+
+      // response.status(200).type("text/html").send(html)
     } catch (error) {
       console.error('Error generating PDF:', error);
       response.status(500).send('Error generating PDF');
