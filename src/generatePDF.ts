@@ -1,10 +1,15 @@
 import puppeteer, { PDFOptions } from 'puppeteer'
+import * as fs from 'node:fs'
+const PDFDocument = require('pdf-lib').PDFDocument
 
 async function generatePDF(html: string): Promise<Buffer> {
+    const staticPages = fs.readFileSync('./src/templates/static.pdf');
+
     const browser = await puppeteer.launch({
         headless: true, devtools: true, dumpio: true,
     });
     const page = await browser.newPage();
+
 
     await page.setViewport({ width: 595, height: 842 })
 
@@ -115,9 +120,22 @@ async function generatePDF(html: string): Promise<Buffer> {
 
     const pdfBuffer = await page.pdf(pdfOptions);
 
+    const mergedPdf = await PDFDocument.create();
+    const pdfsToMerge = [staticPages, pdfBuffer];
+
+    for (const pdfBytes of pdfsToMerge) {
+        const pdf = await PDFDocument.load(pdfBytes);
+        const copiedPages = await mergedPdf.copyPages(pdf, pdf.getPageIndices());
+        copiedPages.forEach((page) => {
+            mergedPdf.addPage(page);
+        });
+    }
+
+    const buf = await mergedPdf.save();
+
     await browser.close();
 
-    return Buffer.from(pdfBuffer);
+    return buf;
 }
 
 

@@ -5,39 +5,6 @@ import { IoMdTrain } from 'react-icons/io';
 function ProjectTemp3() {
   return (
     <main className="montserrat-400">
-      <section></section>
-      <section className="about">
-        <div className="header">
-          <h1 className="header-text">ABOUT US</h1>
-        </div>
-
-        <div className="content">
-          <div className="about-wrapper">
-            <div className="about-content">
-              <p>
-                Welcome to RD Brothers, a global leader in real estate with 20
-                years of experience and a network spanning several countries.
-                Our real estate arm offers exceptional solutions across
-                residential, commercial, retail, educational, healthcare,
-                banking, hospitality and warehousing sectors. Combining global
-                reach with local insights, RD Brothers is committed to
-                delivering customised solutions for buying, selling, leasing,
-                and/or investing, with unmatched professionalism and excellence.
-              </p>
-              <br />
-              <p>
-                Our expertise in real estate services, includes market entry
-                strategies, location advisory, property sourcing, transaction
-                management and investment sales. Beyond our comprehensive real
-                estate offerings, we also own and develop luxury properties,
-                acquire land, and provide feasibility studies to large
-                developments
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section className="description">
         <div className="header">
           <div className="header-text">
