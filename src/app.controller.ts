@@ -140,12 +140,8 @@ export class AppController {
 
             <script type="text/javascript">
               window.addEventListener('load', function() {
-                document.querySelectorAll(".spacer").forEach(el => {
-                  const parent = el.parentElement;
-                  const remainder = (parent.clientHeight % window.innerHeight);
-                  if(remainder > 0) {
-                    el.style = "height: calc(100vh - (" + parent.clientHeight + "px" + " -  100vh) - 105px)";
-                  }
+                document.querySelectorAll("section").forEach(el => {
+                  el.style = "height: " + Math.ceil(el.clientHeight / window.innerHeight) + "00vh";
                 })
               })
             </script>

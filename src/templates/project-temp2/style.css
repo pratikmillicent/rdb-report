@@ -202,11 +202,3 @@ section::before {
   margin-top: .5em;
   font-weight: 500;
 }
-
-footer {
-  padding: 0 var(--margin-x);
-}
-
-.spacer {
-  width: 100%;
-}

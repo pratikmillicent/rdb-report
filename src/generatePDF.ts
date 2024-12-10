@@ -6,6 +6,8 @@ async function generatePDF(html: string): Promise<Buffer> {
     });
     const page = await browser.newPage();
 
+    await page.setViewport({ width: 595, height: 842 })
+
     await page.setContent(html, { waitUntil: 'networkidle0' });
 
     // Use screen CSS instead of print
@@ -13,8 +15,6 @@ async function generatePDF(html: string): Promise<Buffer> {
 
     const pdfOptions: PDFOptions = {
         format: 'A4',
-        // width: '11.25in',
-        // height: '20.00in',
         margin: {
             top: 22,
             bottom: 105

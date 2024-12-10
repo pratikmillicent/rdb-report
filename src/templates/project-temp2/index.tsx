@@ -34,7 +34,6 @@ function ProjectTemp3() {
             </div>
           </div>
         </div>
-        <div className="spacer"></div>
       </section>
 
       <section>
@@ -208,7 +207,6 @@ function ProjectTemp3() {
             </div>
           </div>
         </div>
-        <div className="spacer"></div>
       </section>
 
       <section>
@@ -297,7 +295,6 @@ function ProjectTemp3() {
             </div>
           </div>
         </div>
-        <div className="spacer"></div>
       </section>
     </main>
   );
