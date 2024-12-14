@@ -2,7 +2,7 @@ import puppeteer, { PDFOptions } from 'puppeteer'
 import * as fs from 'node:fs'
 const PDFDocument = require('pdf-lib').PDFDocument
 
-async function generatePDF(html: string): Promise<Buffer> {
+async function generatePDF(html: string, footer: string): Promise<Buffer> {
     const staticPages = fs.readFileSync('./src/templates/static.pdf');
 
     const browser = await puppeteer.launch({
@@ -11,7 +11,7 @@ async function generatePDF(html: string): Promise<Buffer> {
     const page = await browser.newPage();
 
 
-    await page.setViewport({ width: 595, height: 842 })
+    await page.setViewport({ width: 595, height: 1200, deviceScaleFactor: 0 })
 
     await page.setContent(html, { waitUntil: 'networkidle0' });
 
@@ -56,66 +56,7 @@ async function generatePDF(html: string): Promise<Buffer> {
         <div class="header">
         </div>
         `,
-        footerTemplate: `
-        <style>
-            *,
-            *::before,
-            *::after {
-                box-sizing: border-box;
-            }
-
-            html {
-                -webkit-print-color-adjust: exact
-            }
-            body {
-                --navy: #172639;
-                --golden: #eaa636;
-                --margin-y: 22px;
-                --margin-x: 32px;
-                --border-width: 1.5px;
-                --border-color: var(--golden);
-            }
-
-            .wrapper {
-                width: calc(100% - var(--margin-x) * 2);
-                margin: auto;
-            }
-
-            .footer {
-                border: var(--border-width) solid var(--border-color);
-                border-top: 0;
-
-                background: var(--navy);
-
-                padding: 20px var(--margin-x);
-
-                display: flex;
-                justify-content: space-between;
-            }
-
-            .attr {
-                display: flex;
-                justify-content: space-between;
-                font-size: 12px;
-                padding: 6px var(--margin-x);
-            }
-        </style>
-        <div class="wrapper">
-            <div class="footer">
-                <div>
-                    <p style="margin: 10px; font-size: 16px; color: white;">Praveen Thatipamula</p>
-                </div>
-                <div>
-                    <p style="margin: 10px; font-size: 16px; color: white;">Sunny Thakkar</p>
-                </div>
-            </div>
-            <div class="attr">
-                <span>Built on Experience</span>
-                <span>www.rdbrothers.com</span>
-                <span>Built on Experience</span>
-            </div>
-        </div>
-        `
+        footerTemplate: footer
     };
 
     const pdfBuffer = await page.pdf(pdfOptions);

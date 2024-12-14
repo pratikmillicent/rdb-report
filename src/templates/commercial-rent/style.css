@@ -110,6 +110,15 @@ section {
   min-height: calc(100vh);
 }
 
+.rdb-logo {
+  position: absolute;
+  top: 5px;
+  right: 40px;
+  z-index: 999;
+  height: 100px;
+  width: 100px;
+}
+
 section::before {
   content: '';
   position: absolute;
@@ -138,15 +147,16 @@ section::before {
   padding: 20px 0;
   text-transform: uppercase;
   position: relative;
+  font-weight: 500;
 }
-.header-text::after {
-  content: '';
-  display: block;
-  width: 30%;
+.golden-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 2px;
   background-color: var(--golden);
-  margin: 5px auto 0;
 }
+
 .header-text::after {
   content: '';
   width: 65%;
@@ -158,16 +168,27 @@ section::before {
   z-index: -1;
 }
 
+.golden-line {
+  height: 2px;
+  background-color: var(--golden);
+  width: 30%;
+  position: absolute;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+}
+
 .header-text h1 {
   text-align: start;
   padding-left: 20px;
   font-size: 32px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .header-text p {
+  padding-top: 5px;
   text-align: start;
   padding-left: 20px;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
 }
 
@@ -186,7 +207,7 @@ section::before {
   color: var(--navy);
   text-decoration: underline;
   text-decoration-color: var(--golden);
-  margin: 10px auto;
+  margin: 20px auto;
   width: fit-content;
   text-decoration-thickness: 2px;
   font-size: 22px;
@@ -208,6 +229,7 @@ section::before {
   gap: 40px;
   grid-template-columns: auto auto auto auto;
   text-align: center;
+  margin-bottom: 10px;
 }
 
 .extra-aminities {
@@ -233,6 +255,7 @@ section::before {
 .extra-aminity p {
   margin-top: 0.5em;
   font-weight: 500;
+  color: #2c425a;
 }
 
 /* Description */
@@ -255,6 +278,10 @@ section::before {
 
 .description-container > * {
   width: calc(35% - 10px);
+}
+
+.description-text {
+  margin-top: 15px;
 }
 
 .description-text h2 {
@@ -309,14 +336,14 @@ section::before {
 .connective-icon-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 40px;
   width: 100%;
-  margin: 20px 0;
+  margin: 40px 0;
 }
 .connective-box {
   display: flex;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   gap: 20px;
 }
 
@@ -334,7 +361,8 @@ section::before {
 .icon-size {
   font-size: 30px;
 }
-.connective-box span li {
+.connective-box span li,
+.connective-box span {
   font-weight: 500;
   font-size: 12px;
 }
